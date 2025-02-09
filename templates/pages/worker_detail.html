@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ worker.first_name }} {{ worker.last_name }}</h1>
+    <p><strong>Login:</strong> {{ worker.username }}</p>
+    <p><strong>Email:</strong> {{ worker.email }}</p>
+    <p><strong>Position:</strong> {{ worker.position.name|default:"Not specified" }}</p>
+    <p><strong>Assigned tasks:</strong></p>
+    <ul>
+        {% for task in worker.tasks.all %}
+            <li>
+                <a href="{% url 'home-app:task-detail' task.id %}">{{ task.name }}</a>
+                (Deadline: {{ task.deadline }}, Priority: {{ task.get_priority_display }})
+            </li>
+        {% empty %}
+            <li>No assigned tasks</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home-app:index' %}" class="btn btn-secondary">Back</a>
+</div>
+{% endblock %}

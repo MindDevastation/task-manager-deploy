@@ -1,0 +1,558 @@
+[
+  {
+    "model": "home.position",
+    "pk": 1,
+    "fields": {
+      "name": "Developer"
+    }
+  },
+  {
+    "model": "home.position",
+    "pk": 2,
+    "fields": {
+      "name": "Designer"
+    }
+  },
+  {
+    "model": "home.position",
+    "pk": 3,
+    "fields": {
+      "name": "Project Manager"
+    }
+  },
+  {
+    "model": "home.position",
+    "pk": 4,
+    "fields": {
+      "name": "QA Specialist"
+    }
+  },
+  {
+    "model": "home.position",
+    "pk": 5,
+    "fields": {
+      "name": "DevOps"
+    }
+  },
+  {
+    "model": "home.position",
+    "pk": 6,
+    "fields": {
+      "name": "System Architect"
+    }
+  },
+  {
+    "model": "home.position",
+    "pk": 7,
+    "fields": {
+      "name": "Product Owner"
+    }
+  },
+
+  {
+    "model": "home.position",
+    "pk": 8,
+    "fields": {
+      "name": "Business Analyst"
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 1,
+    "fields": {
+      "username": "user1",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "user1@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 1,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 2,
+    "fields": {
+      "username": "user2",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "user2@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 2,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 3,
+    "fields": {
+      "username": "testadmin",
+      "first_name": "Admin",
+      "last_name": "User",
+      "email": "admin@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 3,
+      "is_staff": true,
+      "is_superuser": true
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 4,
+    "fields": {
+      "username": "mod1",
+      "first_name": "Mod",
+      "last_name": "One",
+      "email": "mod1@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 4,
+      "is_staff": true
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 5,
+    "fields": {
+      "username": "mod2",
+      "first_name": "Mod",
+      "last_name": "Two",
+      "email": "mod2@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 4,
+      "is_staff": true
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 6,
+    "fields": {
+      "username": "worker1",
+      "first_name": "Alex",
+      "last_name": "Smith",
+      "email": "worker1@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 1,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 7,
+    "fields": {
+      "username": "worker2",
+      "first_name": "Alice",
+      "last_name": "Brown",
+      "email": "worker2@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 2,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 8,
+    "fields": {
+      "username": "worker3",
+      "first_name": "Robert",
+      "last_name": "Johnson",
+      "email": "worker3@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 3,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 9,
+    "fields": {
+      "username": "worker4",
+      "first_name": "Lisa",
+      "last_name": "Davis",
+      "email": "worker4@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 1,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 10,
+    "fields": {
+      "username": "worker5",
+      "first_name": "Michael",
+      "last_name": "Martinez",
+      "email": "worker5@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 4,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 11,
+    "fields": {
+      "username": "worker6",
+      "first_name": "David",
+      "last_name": "Miller",
+      "email": "worker6@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 5,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 12,
+    "fields": {
+      "username": "worker7",
+      "first_name": "Sophia",
+      "last_name": "Garcia",
+      "email": "worker7@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 6,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 13,
+    "fields": {
+      "username": "worker8",
+      "first_name": "Ethan",
+      "last_name": "Martinez",
+      "email": "worker8@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 7,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 14,
+    "fields": {
+      "username": "worker9",
+      "first_name": "Olivia",
+      "last_name": "Lopez",
+      "email": "worker9@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 8,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 15,
+    "fields": {
+      "username": "worker10",
+      "first_name": "Lucas",
+      "last_name": "Hernandez",
+      "email": "worker10@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 4,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 16,
+    "fields": {
+      "username": "worker11",
+      "first_name": "Liam",
+      "last_name": "Wilson",
+      "email": "worker11@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 1,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 17,
+    "fields": {
+      "username": "worker12",
+      "first_name": "Mia",
+      "last_name": "Taylor",
+      "email": "worker12@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 2,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 18,
+    "fields": {
+      "username": "worker13",
+      "first_name": "Daniel",
+      "last_name": "Anderson",
+      "email": "worker13@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 3,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 19,
+    "fields": {
+      "username": "worker14",
+      "first_name": "Emily",
+      "last_name": "Thomas",
+      "email": "worker14@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 5,
+      "is_staff": false
+    }
+  },
+  {
+    "model": "home.worker",
+    "pk": 20,
+    "fields": {
+      "username": "worker15",
+      "first_name": "James",
+      "last_name": "Jackson",
+      "email": "worker15@example.com",
+      "password": "pbkdf2_sha256$600000$JCOToz07id4aqmQWamZwuN$GBLK/DnyAiwmxIhAqaVzmjj482fwrb17hr6xOaGQO2E=",
+      "position": 6,
+      "is_staff": false
+    }
+  },
+
+  { "model": "home.tasktype", "fields": { "name": "Bug Fix" } },
+    { "model": "home.tasktype", "fields": { "name": "Feature Development" } },
+    { "model": "home.tasktype", "fields": { "name": "Testing" } },
+    { "model": "home.tasktype", "fields": { "name": "Documentation" } },
+    { "model": "home.tasktype", "fields": { "name": "Refactoring" } },
+    { "model": "home.tasktype", "fields": { "name": "Deployment" } },
+    { "model": "home.tasktype", "fields": { "name": "Design" } },
+    { "model": "home.tasktype", "fields": { "name": "Research" } },
+    { "model": "home.tasktype", "fields": { "name": "Code Review" } },
+    { "model": "home.tasktype", "fields": { "name": "Client Meeting" } },
+    { "model": "home.tasktype", "fields": { "name": "Training" } },
+    { "model": "home.tasktype", "fields": { "name": "Planning" } },
+    { "model": "home.tasktype", "fields": { "name": "Configuration" } },
+    { "model": "home.tasktype", "fields": { "name": "Infrastructure Setup" } },
+    { "model": "home.tasktype", "fields": { "name": "Database Design" } },
+    { "model": "home.tasktype", "fields": { "name": "Bug Investigation" } },
+    { "model": "home.tasktype", "fields": { "name": "UI/UX Design" } },
+    { "model": "home.tasktype", "fields": { "name": "Performance Optimization" } },
+    { "model": "home.tasktype", "fields": { "name": "API Integration" } },
+    { "model": "home.tasktype", "fields": { "name": "Customer Support" } },
+
+    {
+    "model": "home.task",
+    "fields": {
+      "name": "Fix Login Bug",
+      "description": "Resolve login issue.",
+      "deadline": "2025-02-10",
+      "is_completed": false,
+      "priority": "High",
+      "task_type": 1,
+      "assignees": [1, 7, 9]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Design New UI",
+      "description": "Create mockups for the new UI.",
+      "deadline": "2025-02-12",
+      "is_completed": false,
+      "priority": "Medium",
+      "task_type": 7,
+      "assignees": [2, 11]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Test Payment Gateway",
+      "description": "Test the new payment gateway integration.",
+      "deadline": "2025-02-15",
+      "is_completed": false,
+      "priority": "Low",
+      "task_type": 3,
+      "assignees": [4]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Prepare Documentation",
+      "description": "Prepare documentation for new feature.",
+      "deadline": "2025-02-20",
+      "is_completed": false,
+      "priority": "Medium",
+      "task_type": 4,
+      "assignees": [5, 12]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Deploy New Feature",
+      "description": "Deploy new feature to production.",
+      "deadline": "2025-02-25",
+      "is_completed": false,
+      "priority": "High",
+      "task_type": 5,
+      "assignees": [6, 8, 10, 11]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Code Review",
+      "description": "Review PR for new feature.",
+      "deadline": "2025-02-28",
+      "is_completed": false,
+      "priority": "Low",
+      "task_type": 9,
+      "assignees": [7, 20]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Bug Investigation",
+      "description": "Investigate bug in the checkout process.",
+      "deadline": "2025-03-01",
+      "is_completed": false,
+      "priority": "High",
+      "task_type": 1,
+      "assignees": [10, 13]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Plan Sprint",
+      "description": "Plan next sprint.",
+      "deadline": "2025-03-05",
+      "is_completed": false,
+      "priority": "Medium",
+      "task_type": 11,
+      "assignees": [14, 15]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Develop API",
+      "description": "Develop a REST API for the new feature.",
+      "deadline": "2025-03-10",
+      "is_completed": false,
+      "priority": "High",
+      "task_type": 10,
+      "assignees": [12, 17]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "UI/UX Design",
+      "description": "Create UI/UX design for the mobile app.",
+      "deadline": "2025-03-15",
+      "is_completed": false,
+      "priority": "Medium",
+      "task_type": 7,
+      "assignees": [14, 16]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Performance Optimization",
+      "description": "Improve the performance of the search feature.",
+      "deadline": "2025-03-20",
+      "is_completed": false,
+      "priority": "High",
+      "task_type": 13,
+      "assignees": [18, 19, 20]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "API Design",
+      "description": "Design the API for the new functionality.",
+      "deadline": "2025-03-25",
+      "is_completed": false,
+      "priority": "Medium",
+      "task_type": 10,
+      "assignees": [1, 3]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Client Meeting for New Project",
+      "description": "Attend the client meeting for the new project.",
+      "deadline": "2025-03-30",
+      "is_completed": false,
+      "priority": "Medium",
+      "task_type": 12,
+      "assignees": [1, 2]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Refactor Database Schema",
+      "description": "Refactor the database schema for better performance.",
+      "deadline": "2025-04-05",
+      "is_completed": false,
+      "priority": "High",
+      "task_type": 5,
+      "assignees": [11, 13]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Training Session",
+      "description": "Conduct a training session for new developers.",
+      "deadline": "2025-04-10",
+      "is_completed": false,
+      "priority": "Low",
+      "task_type": 14,
+      "assignees": [12, 14]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Create Feature Test Cases",
+      "description": "Create test cases for the new feature.",
+      "deadline": "2025-04-15",
+      "is_completed": false,
+      "priority": "Low",
+      "task_type": 3,
+      "assignees": [12, 19]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Conduct User Research",
+      "description": "Conduct research to improve user experience.",
+      "deadline": "2025-04-20",
+      "is_completed": false,
+      "priority": "Medium",
+      "task_type": 8,
+      "assignees": [1, 2, 16]
+    }
+  },
+  {
+    "model": "home.task",
+    "fields": {
+      "name": "Setup Development Environment",
+      "description": "Setup development environment for the new project.",
+      "deadline": "2025-04-25",
+      "is_completed": false,
+      "priority": "Low",
+      "task_type": 15,
+      "assignees": [1, 11]
+    }
+  }
+]

@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ task.name }}</h1>
+    <p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Task Type:</strong> {{ task.task_type }}</p>
+    <p><strong>Priority:</strong> {{ task.get_priority_display }}</p>
+    <p><strong>Deadline:</strong> {{ task.deadline }}</p>
+    <p><strong>Status:</strong> {% if task.is_completed %}✔ Completed {% else %}❌ In Progress {% endif %}</p>
+
+    <form action="{% url 'home-app:task-toggle-status' task.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning">
+            {% if task.is_completed %}Mark as Incomplete{% else %}Mark as Completed{% endif %}
+        </button>
+    </form>
+
+    <p><strong>Assigned Workers:</strong></p>
+    <ul>
+        {% for worker in task.assignees.all %}
+            <li>{{ worker.first_name }} {{ worker.last_name }} ({{ worker.username }})</li>
+        {% empty %}
+            <li>No assignees</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home-app:task-list' %}" class="btn btn-secondary">Back</a>
+</div>
+{% endblock %}
