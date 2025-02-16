@@ -1,10 +1,15 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
 from django.views import View
-from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
+from django.views.generic import (
+    CreateView,
+    UpdateView,
+    DeleteView,
+    ListView,
+    DetailView,
+)
 
 from home.forms import WorkerUpdateForm
 from home.models import Task, Worker
@@ -12,11 +17,13 @@ from home.models import Task, Worker
 
 def index(request):
     if request.user.is_authenticated:
-        priority = request.GET.get("priority")
+        priority = request.GET.get("priority").select_related("task_type")
         if request.user.is_staff:
             tasks = Task.objects.filter(priority=priority)
         else:
-            tasks = Task.objects.filter(assignees=request.user).filter(priority=priority)
+            tasks = Task.objects.filter(assignees=request.user).filter(
+                priority=priority
+            )
 
         workers = Worker.objects.all()
     else:
@@ -38,7 +45,9 @@ class TaskListView(ListView):
 
     def get_queryset(self):
         if self.request.user.is_authenticated:
-            queryset = Task.objects.filter(assignees=self.request.user)
+            queryset = Task.objects.filter(assignees=self.request.user).select_related(
+                "task_type"
+            )
 
             search_query = self.request.GET.get("search", "")
             status_filter = self.request.GET.get("status", "")
@@ -56,14 +65,30 @@ class TaskListView(ListView):
 
 class TaskCreateView(CreateView):
     model = Task
-    fields = ["name", "description", "deadline", "is_completed", "priority", "task_type", "assignees"]
+    fields = [
+        "name",
+        "description",
+        "deadline",
+        "is_completed",
+        "priority",
+        "task_type",
+        "assignees",
+    ]
     template_name = "pages/task_form.html"
     success_url = reverse_lazy("home-app:task-list")
 
 
 class TaskUpdateView(UpdateView):
     model = Task
-    fields = ["name", "description", "deadline", "is_completed", "priority", "task_type", "assignees"]
+    fields = [
+        "name",
+        "description",
+        "deadline",
+        "is_completed",
+        "priority",
+        "task_type",
+        "assignees",
+    ]
     template_name = "pages/task_form.html"
     success_url = reverse_lazy("home-app:task-list")
 
@@ -85,6 +110,9 @@ class WorkerDetailView(DetailView):
     template_name = "pages/worker_detail.html"
     context_object_name = "worker"
 
+    def get_queryset(self):
+        return Worker.objects.select_related("position").prefetch_related("task_set")
+
 
 class TaskToggleStatusView(View):
     def post(self, request, pk):
@@ -93,12 +121,12 @@ class TaskToggleStatusView(View):
         task.save()
         return HttpResponseRedirect(reverse("home-app:task-detail", args=[pk]))
 
+
 def workers_list(request):
-    workers = Worker.objects.all()
-    context = {
-        "workers": workers
-    }
+    workers = Worker.objects.all().select_related("position")
+    context = {"workers": workers}
     return render(request, "pages/workers_list.html", context)
+
 
 @login_required
 def worker_update(request):
@@ -111,7 +139,5 @@ def worker_update(request):
     else:
         form = WorkerUpdateForm(instance=worker)
 
-    context = {
-        "form": form
-    }
+    context = {"form": form}
     return render(request, "pages/worker_update.html", context)

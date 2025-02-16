@@ -24,8 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Add here your deployment HOSTS
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8000", "http://localhost:5085", "http://127.0.0.1:8000",
-                        "http://127.0.0.1:5085"]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "http://localhost:5085",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:5085",
+]
 
 # Application definition
 
@@ -108,11 +112,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
-#if not DEBUG:
+# if not DEBUG:
 #    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type

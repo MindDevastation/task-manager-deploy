@@ -21,7 +21,7 @@ class WorkerModelTest(TestCase):
             first_name="John",
             last_name="Doe",
             email="john@example.com",
-            position=self.position
+            position=self.position,
         )
 
     def test_worker_str(self):
@@ -47,7 +47,9 @@ class TaskViewsTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.position = Position.objects.create(name="Tester")
-        self.worker = Worker.objects.create_user(username="testuser", password="password123")
+        self.worker = Worker.objects.create_user(
+            username="testuser", password="password123"
+        )
         self.task_type = TaskType.objects.create(name="Feature")
         self.task = Task.objects.create(
             name="Create dashboard",
@@ -66,15 +68,13 @@ class TaskViewsTest(TestCase):
 
     def test_task_detail_view(self):
         self.client.login(username="testuser", password="password123")
-        response = self.client.get(reverse("home-app:task-detail",
-                                           args=[self.task.id]))
+        response = self.client.get(reverse("home-app:task-detail", args=[self.task.id]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Design and implement dashboard")
 
     def test_task_toggle_status_view(self):
         self.client.login(username="testuser", password="password123")
-        self.client.post(reverse("home-app:task-detail",
-                                 args=[self.task.id]))
+        self.client.post(reverse("home-app:task-detail", args=[self.task.id]))
         self.task.refresh_from_db()
         self.assertFalse(self.task.is_completed)
 
@@ -82,8 +82,9 @@ class TaskViewsTest(TestCase):
 class WorkerUpdateFormTest(TestCase):
     def setUp(self):
         self.position = Position.objects.create(name="Developer")
-        self.worker = Worker.objects.create_user(username="worker2",
-                                                 password="password123")
+        self.worker = Worker.objects.create_user(
+            username="worker2", password="password123"
+        )
 
     def test_valid_form(self):
         form_data = {
@@ -99,43 +100,48 @@ class WorkerUpdateFormTest(TestCase):
 class AuthTests(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user = Worker.objects.create_user(username="testuser",
-                                               password="password123",
-                                               email="test@example.com")
+        self.user = Worker.objects.create_user(
+            username="testuser", password="password123", email="test@example.com"
+        )
 
     def test_login(self):
-        response = self.client.post(reverse("login"), {"username": "testuser",
-                                                       "password": "password123"})
+        response = self.client.post(
+            reverse("login"), {"username": "testuser", "password": "password123"}
+        )
         self.assertEqual(response.status_code, 302)
 
     def test_logout(self):
-        self.client.login(username="testuser",
-                          password="password123")
+        self.client.login(username="testuser", password="password123")
         response = self.client.get(reverse("logout"))
         self.assertEqual(response.status_code, 302)
 
     def test_password_reset(self):
-        response = self.client.post(reverse("password_reset"),
-                                    {"email": "test@example.com"})
+        response = self.client.post(
+            reverse("password_reset"), {"email": "test@example.com"}
+        )
         self.assertEqual(response.status_code, 302)
 
     def test_password_change(self):
         self.client.login(username="testuser", password="password123")
-        response = self.client.post(reverse("password_change"),
-                                    {"old_password": "password123",
-                                     "new_password1": "newpassword123",
-                                     "new_password2": "newpassword123"})
+        response = self.client.post(
+            reverse("password_change"),
+            {
+                "old_password": "password123",
+                "new_password1": "newpassword123",
+                "new_password2": "newpassword123",
+            },
+        )
         self.assertEqual(response.status_code, 302)
 
 
 class ProfileViewTest(TestCase):
     def setUp(self):
         self.client = Client()
-        self.user = Worker.objects.create_user(username="profileuser",
-                                               password="password123")
+        self.user = Worker.objects.create_user(
+            username="profileuser", password="password123"
+        )
 
     def test_profile_view(self):
-        self.client.login(username="profileuser",
-                          password="password123")
+        self.client.login(username="profileuser", password="password123")
         response = self.client.get(reverse("profile"))
         self.assertEqual(response.status_code, 200)
