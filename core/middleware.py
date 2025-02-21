@@ -10,8 +10,7 @@ class AutoLogoutMiddleware:
     def __call__(self, request):
         last_activity = request.session.get("last_activity")
 
-        if (last_activity
-                and (now() - last_activity).seconds > settings.SESSION_COOKIE_AGE):
+        if last_activity and (now() - last_activity).seconds > settings.SESSION_COOKIE_AGE:
             logout(request)
         else:
             request.session["last_activity"] = now()
