@@ -49,6 +49,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "core.middleware.AutoLogoutMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -124,3 +125,6 @@ LOGIN_REDIRECT_URL = "/"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 AUTH_USER_MODEL = "home.Worker"
+
+# Auto logout
+SESSION_COOKIE_AGE = 300
