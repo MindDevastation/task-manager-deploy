@@ -11,7 +11,37 @@
         <div class="card-body">
           <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+
+            <div class="mb-3">
+              <label for="{{ form.name.id_for_label }}" class="form-label">Task Name</label>
+              {{ form.name }}
+            </div>
+
+            <div class="mb-3">
+              <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+              {{ form.description }}
+            </div>
+
+            <div class="mb-3">
+              <label for="{{ form.deadline.id_for_label }}" class="form-label">Deadline</label>
+              <input type="text" id="id_deadline" name="deadline" class="form-control" value="{{ form.deadline.value|default:'' }}">
+            </div>
+
+            <div class="mb-3">
+              <label for="{{ form.priority.id_for_label }}" class="form-label">Priority</label>
+              {{ form.priority }}
+            </div>
+
+            <div class="mb-3">
+              <label for="{{ form.task_type.id_for_label }}" class="form-label">Task Type</label>
+              {{ form.task_type }}
+            </div>
+
+            <div class="mb-3">
+              <label for="{{ form.assignees.id_for_label }}" class="form-label">Assignees</label>
+              {{ form.assignees }}
+            </div>
+
             <button type="submit" class="btn btn-primary">{{ form.instance.pk|yesno:"Update Task,Create Task" }}</button>
             <a href="{% url 'home-app:task-list' %}" class="btn btn-secondary">Cancel</a>
           </form>
@@ -20,4 +50,19 @@
     </div>
   </div>
 </div>
+
+<!-- Flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    flatpickr("#id_deadline", {
+      enableTime: true,
+      dateFormat: "Y-m-d",
+      minDate: "today"
+    });
+  });
+</script>
+
 {% endblock %}
